@@ -172,18 +172,8 @@ calculaPessoal (x:xs) |categoria x == Pessoal = 1 + calculaPessoal xs
 --------------- TESTES  --------------
 --------------------------------------
 
---PRA APAGAR ISSO NÉ????
-hojeTeste :: Day
-hojeTeste = fromGregorian 2025 04 20
 
-t1 = Tarefa 1 "Reuniao importante" Pendente Alta Trabalho (Just $ fromGregorian 2025 04 15) ["Trabalho", "Urgencia"]
-t2 = Tarefa 2 "Ir no mercado" Pendente Media Pessoal (Just $ fromGregorian 2025 04 25) ["Casa", "Comida"]
-t3 = Tarefa 3 "Estudar Haskell" Concluída Baixa Estudos Nothing ["PF", "Faculdade"]
-t4 = Tarefa 4 "Enviar Trabalho PF" Pendente Alta Estudos Nothing ["PF", "Trabalho"]
-t5 = Tarefa 5 "Mandar mensagem professor" Pendente Media Estudos Nothing ["SD", "Faculdade"]
-tarefas = [t1,t2,t3,t4]
 
---ESSE NAO APAGA NÃO
 --Lista de Tarefas pre-definidas para testes das funcionalidades
 tarefasTeste :: [Tarefa]
 tarefasTeste = [

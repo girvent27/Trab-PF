@@ -76,9 +76,11 @@ listarPorTagIO tarefas = do
             where
                mostrarTarefa tarefa = do
                      putStrLn $ "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
-                                " | Status: "     ++ show (status tarefa) ++
-                                " | Categoria: " ++ show (categoria tarefa)
+                                " | Status: "   ++ show (status tarefa) ++
+                                " | Prioridade: " ++ show (prioridade tarefa) ++
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
                                 
 --Imprime o tempo restante, em dias, para realização de uma tarefa digitada pelo usuário
 --Tarefa de preferencia já presente na lista de tarefas
@@ -122,9 +124,11 @@ tarefasAtrasadasIO tarefas = do
             where
                mostrarTarefa tarefa = putStrLn $ 
                                 "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
+                                " | Status: "   ++ show (status tarefa) ++
                                 " | Prioridade: " ++ show (prioridade tarefa) ++
-                                " | Prazo: "      ++ maybe "Sem prazo" show (prazo tarefa)
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
 
 --Analisa a desccrição de cada elemento da lista e retorna com Palavra Chave
 --Desejada pelo usuário
@@ -142,10 +146,11 @@ buscarPalavraChaveIO tarefas = do
             where
                mostrarTarefa tarefa = do
                      putStrLn $ "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
-                                " | Categoria: "  ++ show (categoria tarefa) ++
+                                " | Status: "   ++ show (status tarefa) ++
                                 " | Prioridade: " ++ show (prioridade tarefa) ++
-                                " | Status: "     ++ show (status tarefa)
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
 
 --Imprime a lista ordenada pela Prioridade da Tarefa
 ordenarPrioridadeIO :: [Tarefa] -> IO [Tarefa]
@@ -163,9 +168,11 @@ ordenarPrioridadeIO tarefas = do
             else mapM_ mostrarTarefa grupo
         mostrarTarefa tarefa = do
           putStrLn $ "ID: " ++ show (idTarefa tarefa) ++
-                     " | Descrição: "   ++ descricao tarefa ++
-                     " | Categoria: "  ++ show (categoria tarefa) ++
-                     " | Prioridade: " ++ show (prioridade tarefa)
+                                " | Status: "   ++ show (status tarefa) ++
+                                " | Prioridade: " ++ show (prioridade tarefa) ++
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
 
 --Filtra tarefas Pendentes ou Concluídas a pedido do usuário
 listarStatusIO :: [Tarefa] -> IO [Tarefa]
@@ -185,9 +192,11 @@ listarStatusIO tarefas = do
             where
                mostrarTarefa tarefa = do
                      putStrLn $ "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
-                                " | Categoria: "  ++ show (categoria tarefa) ++
-                                " | Prioridade: " ++ show (prioridade tarefa)
+                                " | Status: "   ++ show (status tarefa) ++
+                                " | Prioridade: " ++ show (prioridade tarefa) ++
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
                                 
 --Filtra tarefas pela prioridade                                
 listarPrioridadeIO :: [Tarefa] -> IO [Tarefa]
@@ -209,9 +218,11 @@ listarPrioridadeIO tarefas = do
             where
                mostrarTarefa tarefa = do
                      putStrLn $ "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
-                                " | Status: "     ++ show (status tarefa) ++
-                                " | Categoria: " ++ show (categoria tarefa)
+                                " | Status: "   ++ show (status tarefa) ++
+                                " | Prioridade: " ++ show (prioridade tarefa) ++
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
 
 --Filtra tarefas pela categoria
 listarCategoriaIO :: [Tarefa] -> IO [Tarefa]
@@ -233,9 +244,11 @@ listarCategoriaIO tarefas = do
             where
                mostrarTarefa tarefa = do
                      putStrLn $ "ID: "            ++ show (idTarefa tarefa) ++
-                                " | Descrição: "   ++ descricao tarefa ++
-                                " | Status: "     ++ show (status tarefa) ++
-                                " | Prioridade: " ++ show (prioridade tarefa)
+                                " | Status: "   ++ show (status tarefa) ++
+                                " | Prioridade: " ++ show (prioridade tarefa) ++
+                                " | Categoria: " ++ show (categoria tarefa) ++
+                                " | Descrição: " ++ descricao tarefa ++
+                                " | Prazo: " ++ maybe "Nenhum" show (prazo tarefa)
                      
 --Modifica o status de uma Tarefa da Lista                     
 marcarComoConcluídaIO :: [Tarefa] -> IO [Tarefa]
